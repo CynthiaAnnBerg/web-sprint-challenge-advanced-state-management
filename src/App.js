@@ -7,6 +7,8 @@ import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
+import { SMURF_VALUE, SMURF_FETCH, API_FETCH_SUCCESS, API_FETCH_FAIL, SMURF_ADD } from './../actions';
+
 class App extends Component {
   render() {
     return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SMURF_VALUE, SMURF_FETCH, API_FETCH_SUCCESS, API_FETCH_FAIL, SMURF_ADD } from './../actions';
 
 const AddForm = (props) => {
     const [state, setState] = useState({
@@ -16,13 +17,13 @@ const AddForm = (props) => {
     }
 
     const handleSubmit = e => {
-        e.preventDefault();
+        e.preventDefault(smurfName, position, nickname, summary);
         if (state.name === "" || state.position === "" || state.nickname === "") {
-            errorMessage = "Name, position and nickname fields are required.";
+            API_FETCH_FAIL = "Name, position and nickname fields are required.";
         }
     }
 
-    const errorMessage = "";
+    const API_FETCH_FAIL = "";
 
     return(<section>
         <h2>Add Smurf</h2>
@@ -44,7 +45,7 @@ const AddForm = (props) => {
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
-                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
+                API_FETCH_FAIL && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {API_FETCH_FAIL}</div>
             }
             <button>Submit Smurf</button>
         </form>
